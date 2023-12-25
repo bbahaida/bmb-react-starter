@@ -9,9 +9,9 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
     <List
       bg="white"
       boxShadow="3px 0 5px -2px #666"
-      minH="100vh"
+      minH="calc(100vh - 60px)"
       color="full"
-      fontSize="1.5em"
+      fontSize="1.1em"
       padding="20px"
     >
       {items.map((i) => (

@@ -17,6 +17,7 @@ const Navbar = () => {
       as="nav"
       p="10px"
       alignItems="center"
+      h="60px"
     >
       <Heading as="h4" pl="20px">
         Logo

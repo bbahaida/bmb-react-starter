@@ -13,12 +13,17 @@ export default function RootLayout() {
         <Navbar />
       </GridItem>
       <Show above="md">
-        <GridItem colSpan={sidebarSpan}>
+        <GridItem colSpan={sidebarSpan} height="calc(100vh - 60px)">
           <Sidebar items={items} />
         </GridItem>
       </Show>
 
-      <GridItem p="1rem" colSpan={contentSpan} gridAutoRows="auto">
+      <GridItem
+        p="1rem"
+        colSpan={contentSpan}
+        overflowY="auto"
+        height="calc(100vh - 60px)"
+      >
         <Outlet />
       </GridItem>
     </Grid>
