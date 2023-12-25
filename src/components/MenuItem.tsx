@@ -2,6 +2,7 @@ import React from "react";
 import { MenuItemProps } from "../types";
 import { ListIcon, ListItem } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import "./MenuItem.css";
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   return (

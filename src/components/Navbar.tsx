@@ -1,19 +1,35 @@
 import {
+  AddIcon,
+  ExternalLinkIcon,
+  RepeatIcon,
+  TriangleDownIcon,
+} from "@chakra-ui/icons";
+import {
   Box,
-  Button,
   Flex,
   HStack,
   Heading,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
   Spacer,
-  Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
+import React from "react";
+import { CiLogout } from "react-icons/ci";
+import { NavbarProps } from "../types";
+import { DarkModeSwitch } from "./DarkModeSwitch";
 
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = () => {
+  const bg = useColorModeValue("white", "full.900");
+  const borderColor = useColorModeValue("pinky.200", "white");
+
   return (
     <Flex
-      bg="white"
+      bg={bg}
       borderBottom="1px solid"
-      borderColor="pinky"
+      borderColor={borderColor}
       as="nav"
       p="10px"
       alignItems="center"
@@ -25,11 +41,39 @@ const Navbar = () => {
       <Spacer />
 
       <HStack spacing="20px">
-        <Box bg="gray.200" p="10px">
-          M
+        <Menu>
+          <MenuButton
+            cursor="pointer"
+            as={TriangleDownIcon}
+            aria-label="Options"
+          />
+          <MenuList>
+            <MenuItem icon={<AddIcon />} command="⌘T">
+              New Tab
+            </MenuItem>
+            <MenuItem icon={<ExternalLinkIcon />} command="⌘N">
+              New Window
+            </MenuItem>
+            <MenuItem icon={<RepeatIcon />} command="⌘⇧N">
+              Open Closed Tab
+            </MenuItem>
+            <MenuItem icon={<CiLogout />}>Logout</MenuItem>
+          </MenuList>
+        </Menu>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          bg="gray.200"
+          p="10px"
+          w="40px"
+          h="40px"
+          borderRadius="50%"
+        >
+          BM
         </Box>
-        <Text>mario@bmb.dev</Text>
-        <Button colorScheme="red">Logout</Button>
+
+        <DarkModeSwitch />
       </HStack>
     </Flex>
   );

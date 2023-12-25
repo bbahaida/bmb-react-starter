@@ -1,14 +1,21 @@
+import {
+  Grid,
+  GridItem,
+  Show,
+  useBreakpointValue,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { Grid, GridItem, Show, useBreakpointValue } from "@chakra-ui/react";
 import Sidebar from "../components/Sidebar";
 import { items } from "../config/menu-items";
 
 export default function RootLayout() {
+  const bg = useColorModeValue("#eee", "full.500");
   const sidebarSpan = useBreakpointValue({ base: 6, md: 1 });
   const contentSpan = useBreakpointValue({ base: 6, md: 5 });
   return (
-    <Grid bg="light.100" minH="100vh" templateColumns="repeat(6, 1fr)">
+    <Grid bg={bg} minH="100vh" templateColumns="repeat(6, 1fr)">
       <GridItem colSpan={6}>
         <Navbar />
       </GridItem>

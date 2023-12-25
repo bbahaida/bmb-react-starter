@@ -8,7 +8,11 @@ export interface MenuItem {
 
 export interface SidebarProps {
   items: MenuItem[];
+  isDark?: boolean;
 }
 export interface MenuItemProps {
   item: MenuItem;
+}
+export interface NavbarProps {
+  isDark?: boolean;
 }
