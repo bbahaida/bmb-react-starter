@@ -1,30 +1,57 @@
-# React + TypeScript + Vite
+# BMB React Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+BMB React Starter is a ready-to-use project setup that combines React with TypeScript, leveraging Vite for build optimization, and styled using Chakra UI. It's designed for developers who want to kickstart their React projects with a robust, scalable, and modern toolchain.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+### Dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project relies on several key technologies:
 
-- Configure the top-level `parserOptions` property like this:
+- React (with TypeScript)
+- Vite for efficient building and hot reloading
+- Chakra UI for a modular and accessible component library
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Installing
+
+To get started with BMB React Starter, clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/bbahaida/BMB-React-Starter.git
+cd BMB-React-Starter
+yarn
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Executing Program
+
+To run the application locally:
+
+```bash
+yarn run dev
+```
+
+### Usage
+
+BMB React Starter is structured to be intuitive for developers familiar with React and TypeScript. Components can be found in the `/components` directory, and you can add or modify these as per your project requirements.
+
+### Components
+
+The project includes a set of pre-built components using Chakra UI. These can be customized and extended as needed.
+
+### Contributing
+
+Contributions to BMB React Starter are welcome! Please read the CONTRIBUTING.md for guidelines on how to submit pull requests.
+
+### License
+
+This project is licensed under MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+### Contact
+
+##### Brahim Bahaida
+
+##### [brahim.bahaida@bmbsolutions.net](mailto:brahim.bahaida@bmbsolutions.net)
+
+##### [LinkedIn](https://www.linkedin.com/in/bbahaida/)
