@@ -1,19 +1,24 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Show, useBreakpointValue } from "@chakra-ui/react";
 import Sidebar from "../components/Sidebar";
 import { items } from "../config/menu-items";
 
 export default function RootLayout() {
+  const sidebarSpan = useBreakpointValue({ base: 6, md: 1 });
+  const contentSpan = useBreakpointValue({ base: 6, md: 5 });
   return (
-    <Grid bg="light.100" templateColumns="repeat(6, 1fr)">
+    <Grid bg="light.100" minH="100vh" templateColumns="repeat(6, 1fr)">
       <GridItem colSpan={6}>
         <Navbar />
       </GridItem>
-      <GridItem colSpan={1}>
-        <Sidebar items={items} />
-      </GridItem>
-      <GridItem colSpan={5}>
+      <Show above="md">
+        <GridItem colSpan={sidebarSpan}>
+          <Sidebar items={items} />
+        </GridItem>
+      </Show>
+
+      <GridItem p="1rem" colSpan={contentSpan} gridAutoRows="auto">
         <Outlet />
       </GridItem>
     </Grid>
