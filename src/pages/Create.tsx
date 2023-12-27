@@ -27,7 +27,7 @@ export default function Create() {
     count: steps.length,
   });
   return (
-    <Flex justify="center" direction="column">
+    <Flex mt="20px" justify="center" direction="column">
       <Stepper index={activeStep} colorScheme="pinky">
         {steps.map((step, index) => (
           <Step key={index}>

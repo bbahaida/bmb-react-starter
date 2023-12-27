@@ -1,15 +1,30 @@
-import { HStack, Switch, Text, useColorMode } from "@chakra-ui/react";
+import { HStack, Icon, Switch, Text, useColorMode } from "@chakra-ui/react";
+import { CiDark, CiSun } from "react-icons/ci";
 
 export const DarkModeSwitch = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HStack>
-      <Switch
-        isChecked={colorMode === "dark"}
-        onChange={toggleColorMode}
-        colorScheme="pinky"
-      />
-      <Text>Dark</Text>
+      {colorMode === "light" && (
+        <Icon
+          w="30px"
+          h="30px"
+          cursor="pointer"
+          as={CiDark}
+          onClick={toggleColorMode}
+        />
+      )}
+
+      {colorMode === "dark" && (
+        <Icon
+          color="orange"
+          w="30px"
+          h="30px"
+          cursor="pointer"
+          as={CiSun}
+          onClick={toggleColorMode}
+        />
+      )}
     </HStack>
   );
 };

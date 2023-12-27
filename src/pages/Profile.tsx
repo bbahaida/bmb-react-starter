@@ -16,7 +16,7 @@ import {
 
 export default function Profile() {
   return (
-    <Tabs mt="40px" p="20px" colorScheme="pinky">
+    <Tabs mt="20px" p="20px" colorScheme="pinky">
       <TabList>
         <Tab>User Info</Tab>
         <Tab>Update Password</Tab>
