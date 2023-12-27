@@ -11,14 +11,13 @@ import {
   StepStatus,
   StepTitle,
   Stepper,
-  useColorModeValue,
   useSteps,
 } from "@chakra-ui/react";
 
 const steps = [
-  { title: "First", description: "Contact Info" },
-  { title: "Second", description: "Date & Time" },
-  { title: "Third", description: "Select Rooms" },
+  { title: "Details", description: "Product Details" },
+  { title: "Images", description: "Images" },
+  { title: "Prices", description: "Prices" },
 ];
 
 export default function Create() {

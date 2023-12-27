@@ -16,3 +16,6 @@ export interface MenuItemProps {
 export interface NavbarProps {
   isDark?: boolean;
 }
+export interface BreadcrumbProps {
+  paths: string[];
+}

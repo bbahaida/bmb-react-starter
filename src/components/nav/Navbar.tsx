@@ -48,15 +48,6 @@ const Navbar: React.FC<NavbarProps> = () => {
             aria-label="Options"
           />
           <MenuList>
-            <MenuItem icon={<AddIcon />} command="⌘T">
-              New Tab
-            </MenuItem>
-            <MenuItem icon={<ExternalLinkIcon />} command="⌘N">
-              New Window
-            </MenuItem>
-            <MenuItem icon={<RepeatIcon />} command="⌘⇧N">
-              Open Closed Tab
-            </MenuItem>
             <MenuItem icon={<CiLogout />}>Logout</MenuItem>
           </MenuList>
         </Menu>
