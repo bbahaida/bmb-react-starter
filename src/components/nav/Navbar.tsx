@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { CiLogout } from "react-icons/ci";
-import { NavbarProps } from "../types";
+import { NavbarProps } from "../../types";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
 const Navbar: React.FC<NavbarProps> = () => {

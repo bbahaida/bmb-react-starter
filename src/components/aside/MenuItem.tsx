@@ -1,5 +1,5 @@
 import React from "react";
-import { MenuItemProps } from "../types";
+import { MenuItemProps } from "../../types";
 import { ListIcon, ListItem } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import "./MenuItem.css";

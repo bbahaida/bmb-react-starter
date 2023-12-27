@@ -1,16 +1,21 @@
 import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
   Grid,
   GridItem,
   Show,
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import Navbar from "../components/nav/Navbar";
+import Sidebar from "../components/aside/Sidebar";
 import { items } from "../config/menu-items";
+import { getPath } from "../utils/BreadcrumbUtils";
 
 export default function RootLayout() {
+  const path = getPath(useLocation());
   const bg = useColorModeValue("#eee", "full.500");
   const sidebarSpan = useBreakpointValue({ base: 6, md: 1 });
   const contentSpan = useBreakpointValue({ base: 6, md: 5 });
@@ -31,6 +36,19 @@ export default function RootLayout() {
         overflowY="auto"
         height="calc(100vh - 60px)"
       >
+        <Breadcrumb mb="20px">
+          {path.map((p, i) => (
+            <BreadcrumbItem key={p}>
+              <BreadcrumbLink
+                as={Link}
+                to={p}
+                isCurrentPage={i + 1 == path.length}
+              >
+                {items.find((i) => i.path == p)?.title}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          ))}
+        </Breadcrumb>
         <Outlet />
       </GridItem>
     </Grid>

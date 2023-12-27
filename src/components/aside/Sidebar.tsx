@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box, List, useColorModeValue } from "@chakra-ui/react";
-import { SidebarProps } from "../types";
+import { SidebarProps } from "../../types";
 import MenuItem from "./MenuItem";
 
 const Sidebar: React.FC<SidebarProps> = ({ items }) => {
@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
     >
       <List color={useColorModeValue("full.900", "white")} fontSize="1.1em">
         {items.map((i) => (
-          <MenuItem item={i} />
+          <MenuItem key={i.path} item={i} />
         ))}
       </List>
     </Box>
