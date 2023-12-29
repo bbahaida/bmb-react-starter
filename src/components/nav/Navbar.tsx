@@ -1,11 +1,5 @@
 import {
-  AddIcon,
-  ExternalLinkIcon,
-  RepeatIcon,
-  TriangleDownIcon,
-} from "@chakra-ui/icons";
-import {
-  Box,
+  Avatar,
   Flex,
   HStack,
   Heading,
@@ -16,12 +10,14 @@ import {
   Spacer,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import { CiLogout } from "react-icons/ci";
+import authCtx from "../../store/auth/AuthContextProvider";
 import { NavbarProps } from "../../types";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
 const Navbar: React.FC<NavbarProps> = () => {
+  const { authState } = useContext(authCtx);
   const bg = useColorModeValue("white", "full.900");
   const borderColor = useColorModeValue("pinky.200", "white");
 
@@ -41,28 +37,16 @@ const Navbar: React.FC<NavbarProps> = () => {
       <Spacer />
 
       <HStack spacing="20px">
-        <Menu>
-          <MenuButton
-            cursor="pointer"
-            as={TriangleDownIcon}
-            aria-label="Options"
-          />
-          <MenuList>
-            <MenuItem icon={<CiLogout />}>Logout</MenuItem>
-          </MenuList>
-        </Menu>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          bg="gray.200"
-          p="10px"
-          w="40px"
-          h="40px"
-          borderRadius="50%"
-        >
-          BM
-        </Box>
+        {authState.isLoggedIn && (
+          <Menu>
+            <MenuButton cursor="pointer" aria-label="Options">
+              <Avatar w="40px" h="40px" src="https://bit.ly/broken-link" />
+            </MenuButton>
+            <MenuList>
+              <MenuItem icon={<CiLogout />}>Logout</MenuItem>
+            </MenuList>
+          </Menu>
+        )}
 
         <DarkModeSwitch />
       </HStack>

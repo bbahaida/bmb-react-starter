@@ -3,9 +3,9 @@ import {
   BreadcrumbLink,
   Breadcrumb as Crumb,
 } from "@chakra-ui/react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { items } from "../config/menu-items";
-import React from "react";
 import { BreadcrumbProps } from "../types";
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ paths }) => {
