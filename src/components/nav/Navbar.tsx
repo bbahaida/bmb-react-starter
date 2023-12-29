@@ -17,7 +17,7 @@ import { NavbarProps } from "../../types";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
 const Navbar: React.FC<NavbarProps> = () => {
-  const { authState } = useContext(authCtx);
+  const { authState, globalLogOutDispatch } = useContext(authCtx);
   const bg = useColorModeValue("white", "full.900");
   const borderColor = useColorModeValue("pinky.200", "white");
 
@@ -43,7 +43,12 @@ const Navbar: React.FC<NavbarProps> = () => {
               <Avatar w="40px" h="40px" src="https://bit.ly/broken-link" />
             </MenuButton>
             <MenuList>
-              <MenuItem icon={<CiLogout />}>Logout</MenuItem>
+              <MenuItem
+                icon={<CiLogout />}
+                onClick={() => globalLogOutDispatch()}
+              >
+                Logout
+              </MenuItem>
             </MenuList>
           </Menu>
         )}

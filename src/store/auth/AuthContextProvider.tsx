@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useReducer,
 } from "react";
+import { redirect } from "react-router-dom";
 
 // Project dependencies
 import { AuthActionEnum } from "./auth-actions";
@@ -38,7 +39,6 @@ export const AuthContextProvider = (props: AuthProviderProps) => {
   const { children } = props;
 
   const [authState, authDispatch] = useReducer(authReducer, defaultAuthState);
-  //const navigate = useNavigate();
 
   // Check if user detail is persisted, mostly catering for refreshing of the browser
   useEffect(() => {
@@ -49,32 +49,24 @@ export const AuthContextProvider = (props: AuthProviderProps) => {
     }
   }, []);
 
-  const globalLogInDispatch = useCallback(
-    (props: UserData) => {
-      const { authToken, email, name, userId } = props;
-      authDispatch({
-        type: AuthActionEnum.LOG_IN,
-        payload: {
-          authToken,
-          userId,
-          name,
-          email,
-        },
-      });
-      //navigate("/resource");
-    },
-    []
-    //[navigate]
-  );
+  const globalLogInDispatch = useCallback((props: UserData) => {
+    const { authToken, email, name, userId } = props;
+    authDispatch({
+      type: AuthActionEnum.LOG_IN,
+      payload: {
+        authToken,
+        userId,
+        name,
+        email,
+      },
+    });
+    redirect("/");
+  }, []);
 
-  const globalLogOutDispatch = useCallback(
-    () => {
-      authDispatch({ type: AuthActionEnum.LOG_OUT, payload: null });
-      //navigate("/user/login");
-    },
-    []
-    //[navigate]
-  );
+  const globalLogOutDispatch = useCallback(() => {
+    authDispatch({ type: AuthActionEnum.LOG_OUT, payload: null });
+    redirect("/");
+  }, []);
 
   // context values to be passed down to children
   const ctx = {
